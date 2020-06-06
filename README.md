@@ -24,7 +24,7 @@ This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and
 
 
 
-##<a name="license"></a> LICENSE
+## <a name="license"></a> LICENSE
 
 	The MIT License
 
@@ -52,7 +52,7 @@ This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and
 
 
 
-##<a name="manual_installation"></a>Manual Installation
+## <a name="manual_installation"></a>Manual Installation
 
 ### Manual Installation for Amazon Fire OS
 
@@ -252,13 +252,15 @@ Add the `src/windows8/PushPluginProxy.js` script to your `www` folder and refere
 
 Do not forget to reference the `cordova.js` as well.
 
-<script  type="text/javascript" charset="utf-8" src="cordova.js"></script>
+```html
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+```
 
 To receive toast notifications additional [toastCapable=’true’](http://msdn.microsoft.com/en-us/library/windows/apps/hh781238.aspx) attribute is required to be manually added in manifest file.
 
 
 
-##<a name="automatic_installation"></a>Automatic Installation
+## <a name="automatic_installation"></a>Automatic Installation
 
 Below are the methods for installing this plugin automatically using command line tools. For additional info, take a look at the [Plugman Documentation](https://github.com/apache/cordova-plugman/blob/master/README.md) and [Cordova Plugin Specification](https://github.com/alunny/cordova-plugin-spec).
 
@@ -301,7 +303,7 @@ where
 
 
 
-##<a name="plugin_api"></a> Plugin API
+## <a name="plugin_api"></a> Plugin API
 
 In the plugin `examples` folder you will find a sample implementation showing how to interact with the PushPlugin. Modify it to suit your needs.
 
@@ -540,7 +542,7 @@ pushNotification.unregister(successHandler, errorHandler, options);
 
 ```js
 
-if(device.platform == "Win32NT"){
+if (device.platform == "Win32NT") {
     pushNotification.register(
         channelHandler,
         errorHandler,
@@ -564,7 +566,6 @@ Event callback that gets called when your device receives a notification. This i
 ```js
 //handle MPNS notifications for WP8
 function onNotificationWP8(e) {
-
 	if (e.type == "toast" && e.jsonContent) {
 		pushNotification.showToastNotification(successHandler, errorHandler,
 		{
@@ -587,9 +588,9 @@ Event callback that gets called when server error occurs when receiving notifica
 
 ```js
 function jsonErrorHandler(error) {
-		$("#app-status-ul").append('<li style="color:red;">error:' + error.code + '</li>');
-		$("#app-status-ul").append('<li style="color:red;">error:' + error.message + '</li>');
-	}
+	$("#app-status-ul").append('<li style="color:red;">error:' + error.code + '</li>');
+	$("#app-status-ul").append('<li style="color:red;">error:' + error.message + '</li>');
+}
 ```
 
 #### showToastNotification (WP8 only)
@@ -697,7 +698,7 @@ See [Sending push notifications with WNS](http://msdn.microsoft.com/en-us/librar
 
 
 
-##<a name="testing"></a> Testing
+## <a name="testing"></a> Testing
 The notification system consists of several interdependent components.
 
 1. The client application which runs on a device and receives notifications.
@@ -749,7 +750,7 @@ While the data model for iOS is somewhat fixed, it should be noted that GCM is f
 
 ### Testing ADM Notifications for Amazon Fire OS
 
-####<a name="registering_for_adm"></a>Register your app for Amazon Device Messaging (ADM)
+#### <a name="registering_for_adm"></a>Register your app for Amazon Device Messaging (ADM)
 
 1. Create a developer account on [Amazon Developer Portal](https://developer.amazon.com/home.html)
 2. [Add a new app](https://developer.amazon.com/application/new.html) and turn Device Messaging switch to ON. Create a sample app for your device so you have the app name and package name used to register online.
@@ -804,7 +805,7 @@ If you're not up to building and maintaining your own intermediary push server, 
 
 
 
-##<a name="additional_resources"></a>Additional Resources
+## <a name="additional_resources"></a>Additional Resources
 
 - [Amazon Device Messaging](https://developer.amazon.com/sdk/adm/credentials.html)
 - [Apple Push Notification Services Tutorial: Part 1/2](http://www.raywenderlich.com/3443/apple-push-notification-services-tutorial-part-12)
@@ -814,7 +815,7 @@ If you're not up to building and maintaining your own intermediary push server, 
 - [Local and Push Notification Programming Guide](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) (Apple)
 
 
-##<a name="acknowledgments"><a/> Acknowledgments
+## <a name="acknowledgments"><a/> Acknowledgments
 
 Huge thanks to Mark Nutter whose [GCM-Cordova plugin](https://github.com/marknutter/GCM-Cordova) forms the basis for the Android side implimentation.
 
